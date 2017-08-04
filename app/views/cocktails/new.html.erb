@@ -1,10 +1,23 @@
-<h1>Create your cocktail</h1>
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <a href="/" class="navbar-wagon-brand">
+  <%= image_tag "drinkss.jpg", {class: "img-circle", id: "logo"}%>
+  </a>
+  <h2>Create your cocktail</h2>
+</div>
 
 
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.button :submit,  cocktails_path %>
-<% end %>
+
+<div class="container">
+  <%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.button :submit, "Done", class:"btn btn-primary" %>
+    <%= link_to "Back", cocktails_path, class:"btn btn-primary" %>
+  <% end %>
+</div>
 
 
-<%= link_to "Back", cocktails_path, class:"btn btn-primary" %>
+
+

@@ -32,7 +32,6 @@ ingredients = hash['drinks']
 ingredients.each do |ingredient|
 
   Ingredient.create!(name: ingredient['strIngredient1'])
-
 end
 
 
@@ -40,3 +39,9 @@ end
   description = (0..20).to_a.sample
   Dose.create!(description: description, ingredient_id: Ingredient.all.sample.id, cocktail_id: Cocktail.all.sample.id)
 end
+
+
+url = "http://static.giantbomb.com/uploads/original/9/99864/2419866-nes_console_set.png"
+cocktail = Cocktail.new(name: 'NES')
+cocktail.remote_photo_url = url
+cocktail.save

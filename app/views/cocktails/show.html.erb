@@ -1,0 +1,33 @@
+<h1><i class="fa fa-glass" aria-hidden="true"></i>  <%= @cocktail.name  %></h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-5 col-sm-offset-3">
+
+<% @cocktail.doses.each do |dose| %>
+
+<i class="fa fa-hand-o-right" aria-hidden="true"></i>
+<strong>Qtdad: </strong> <%= dose.description %> ml
+
+
+
+<i class="fa fa-hand-o-right" aria-hidden="true"></i>
+<strong>Ingredient: </strong> <%= dose.ingredient.name %>
+
+
+<br>
+
+<%= link_to "Delete your dose", dose_path(dose), method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-danger"%>
+
+<%end%>
+    </div>
+  </div>
+</div>
+
+<%= link_to "Delete your cocktail", cocktail_path(@cocktail), method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-danger"%>
+
+
+<%= link_to "Back", cocktails_path, class:"btn btn-primary" %>
+
+
+<%= link_to "Add dose", new_cocktail_dose_path(@cocktail), class:"btn btn-primary" %>
